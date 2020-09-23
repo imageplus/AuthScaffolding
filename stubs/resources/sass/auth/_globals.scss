@@ -1,0 +1,17 @@
+body {
+    font-family: 'Nunito', serif;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-title {
+    font-size: 2rem;
+}
+
+.dropdown-open-mobile{
+    @include media-breakpoint-down(sm){
+        display: block !important;
+    }
+}

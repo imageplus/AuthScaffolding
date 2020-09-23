@@ -1,0 +1,29 @@
+{
+    "name": "imageplus/auth-scaffolding",
+    "description": "Creates authentication views for fortify",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "harry",
+            "email": "harry.hindson@image-plus.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Imageplus\\AuthScaffolding\\": "src/"
+        }
+    },
+    "require": {
+        "inertiajs/inertia-laravel": "^0.2.12",
+        "laravel/fortify": "^1.4",
+        "Jenssegers/Agent": "^2.6.4"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Imageplus\\AuthScaffolding\\ImageplusAuthScaffoldingServiceProvider"
+            ]
+        }
+    }
+}

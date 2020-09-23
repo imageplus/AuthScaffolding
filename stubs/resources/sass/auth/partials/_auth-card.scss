@@ -1,0 +1,21 @@
+.auth-card {
+    width: 25%;
+    max-width: 500px;
+    border-radius: 0.5rem;
+
+    @include media-breakpoint-down(lg){
+        width: 50%;
+    }
+
+    @include media-breakpoint-down(sm){
+        width: 75%;
+    }
+
+    @include media-breakpoint-down(xs){
+        width: 100%;
+    }
+
+    &--title {
+        font-size: 2rem;
+    }
+}
