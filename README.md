@@ -5,7 +5,7 @@ Simple authentication scaffolding based off Laravel Fortify built with InertiaJS
 To install the package you must run
 
 ```
-composer i imageplus/auth-scaffolding
+composer require imageplus/auth-scaffolding
 ```
 
 Once the package has installed run
