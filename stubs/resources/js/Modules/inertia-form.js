@@ -1,5 +1,5 @@
 class InertiaForm {
-    constructor(inertiaInstance, inertiaPage,  data = {}, options = {}) {
+    constructor(inertiaInstance, inertiaPage, globals,  data = {}, options = {}) {
         this.init();
 
         this.__$inertia = {
@@ -16,14 +16,15 @@ class InertiaForm {
                     bag: 'default'
                 },
                 ...options
-            }
+            },
+            globals: globals
         }
 
         this.setData(data);
     }
 
-    static newForm(inertiaInstance, inertiaPage, data = {}, options = {}){
-        return new InertiaForm(inertiaInstance, inertiaPage, data, options);
+    static newForm(inertiaInstance, inertiaPage, globals, data = {}, options = {}){
+        return new InertiaForm(inertiaInstance, inertiaPage, globals, data, options);
     }
 
     init(){
@@ -98,10 +99,18 @@ class InertiaForm {
 
     onSuccess() {
         this.__$instance.successful = true;
+
+        if(this.__$instance.globals.onSuccess !== undefined){
+            this.__$instance.globals.onSuccess(this);
+        }
     }
 
     onFail(){
         this.__$instance.successful = false;
+
+        if(this.__$instance.globals.onFail !== undefined){
+            this.__$instance.globals.onFail(this);
+        }
     }
 
     errors(){
@@ -124,11 +133,12 @@ class InertiaForm {
 }
 
 export default {
-    install(Vue) {
+    install(Vue, globals = {}) {
         Vue.prototype.$inertia.form = (data = {}, options = {}) => {
             return InertiaForm.newForm(
                 Vue.prototype.$inertia,
                 () => Vue.prototype.$page,
+                globals,
                 data,
                 options
             );
