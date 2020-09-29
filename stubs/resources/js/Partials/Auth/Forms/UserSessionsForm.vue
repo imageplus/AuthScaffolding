@@ -5,16 +5,16 @@
         </subtext>
 
         <!-- Other Browser Sessions -->
-        <div class="my-3" v-if="$page.sessions.length > 0">
-            <div class="d-flex align-items-center mb-1" :class="{'font-weight-bold' : session.current_device}" v-for="session in $page.sessions">
+        <div class="my-3 browser-sessions" v-if="$page.sessions.length > 0">
+            <div class="d-flex align-items-center browser-sessions--session" :class="{'font-weight-bold' : session.current_device}" v-for="session in $page.sessions">
                 <div class="mr-2">
                     {{ session.agent.platform }} - {{ session.agent.browser }}
                 </div>
 
                 <div class="mr-2">{{ session.ip_address }}</div>
 
-                <subtext v-if="!session.current_device">Last active {{ session.last_active }}</subtext>
-                <subtext v-else>This Device</subtext>
+                <subtext class="browser-sessions--active" v-if="!session.current_device">Last active {{ session.last_active }}</subtext>
+                <subtext class="browser-sessions--active" :class="{'browser-sessions--current-device': session.current_device}" v-else>This Device</subtext>
             </div>
         </div>
 

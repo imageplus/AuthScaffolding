@@ -1,0 +1,24 @@
+.browser-sessions {
+    &--session {
+        margin-bottom: 0.25rem;
+    }
+
+    @include media-breakpoint-down(xs){
+        &--session {
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+
+            > div {
+                flex-grow: 1;
+                order: 2;
+                width: 100%;
+            }
+
+            .browser-sessions {
+                &--active {
+                    order: 1;
+                }
+            }
+        }
+    }
+}
